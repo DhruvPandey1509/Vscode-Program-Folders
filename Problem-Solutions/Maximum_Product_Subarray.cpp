@@ -6,7 +6,6 @@ class Solution
 public:
     int maxProduct(vector<int> &nums)
     {
-
         if (nums.size() == 1)
         {
             return nums[0];
@@ -23,7 +22,6 @@ public:
                 currP = 1;
             }
         }
-
         currP = 1;
         for (int i = nums.size() - 1; i >= 0; i--)
         {
@@ -35,7 +33,6 @@ public:
                 currP = 1;
             }
         }
-
         return maxP;
     }
 };
