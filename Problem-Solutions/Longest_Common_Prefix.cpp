@@ -7,7 +7,7 @@ public:
     string longestCommonPrefix(vector<string> &strs)
     {
 
-        string res = strs[0]; // Asuming that first string is the longest common string
+        string res = strs[0]; // Assuming that first string is the longest common string
 
         for (string s : strs) // iterating over the strs
         {
