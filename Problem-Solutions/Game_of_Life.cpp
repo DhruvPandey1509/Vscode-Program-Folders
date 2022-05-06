@@ -6,7 +6,6 @@ class Solution
 public:
     void gameOfLife(vector<vector<int>> &board)
     {
-
         int rows = board.size();
         int cols = board[0].size();
 

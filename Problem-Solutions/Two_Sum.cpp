@@ -6,7 +6,6 @@ class Solution
 public:
 	vector<int> twoSum(vector<int> &nums, int t)
 	{
-
 		vector<pair<int, int>> v;
 		for (int i = 0; i < nums.size(); i++)
 		{
@@ -27,7 +26,6 @@ public:
 				v1.push_back(v[en].second);
 				break;
 			}
-
 			else if (sum > t)
 			{
 				en--;

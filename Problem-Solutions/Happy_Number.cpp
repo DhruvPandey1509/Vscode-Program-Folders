@@ -28,7 +28,7 @@ public:
 
         n = val(n);
         if (res.find(n) != res.end())
-            return false;
+        return false;
         res.insert(n);
         return isHappy(n);
     }

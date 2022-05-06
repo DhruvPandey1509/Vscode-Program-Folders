@@ -6,7 +6,6 @@ class Solution
 public:
     int maxArea(vector<int> &height)
     {
-
         int st = 0;
         int en = height.size() - 1;
         int water = 0;
