@@ -5,7 +5,6 @@ class Solution
 {
 public:
     // You need to complete this function
-
     // avoid space at the starting of the string in "move disk....."
     long long count = 0;
     long long toh(int n, int from, int to, int aux)
