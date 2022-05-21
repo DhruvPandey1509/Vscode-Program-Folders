@@ -29,7 +29,8 @@ int main()
 {
     vector<int> denoms = {1, 5, 7, 10}; // types
     int m = 8;
-
+        cin>>m;
+        cout<<m;
     cout << minNumberOfCoinForChange(denoms, m) << endl;
 
     cout << minNumberOfCoinForChange(denoms, m) << endl;
