@@ -16,6 +16,7 @@ public:
     void addEdge(int u, int v);
     void bfs(int s);            // bfs traversal
     int minEdges(int s, int d); // minimum moves (edges) to reach from source to destination node
+    void findPaths(int s, int d);
 };
 
 void Graph ::addEdge(int u, int v)
@@ -26,12 +27,10 @@ void Graph ::addEdge(int u, int v)
 void Graph ::bfs(int s) // bfs traversal
 {
     vector<bool> isVisited(V, false);
-
     list<int> q;
 
     isVisited[s] = true;
     q.push_back(s);
-
     while (!q.empty())
     {
         s = q.front();
@@ -79,6 +78,9 @@ int Graph ::minEdges(int s, int d) // minimum moves (edges) to reach from source
             }
         }
     }
+}
+void findPaths(int s, int d)
+{
 }
 int main()
 {
