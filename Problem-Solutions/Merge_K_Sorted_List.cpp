@@ -52,7 +52,7 @@ public:
 
     ListNode *mergeKLists(vector<ListNode *> &lists)
     {
-
+        
         int n = lists.size();
         if (n == 0)
             return NULL;
