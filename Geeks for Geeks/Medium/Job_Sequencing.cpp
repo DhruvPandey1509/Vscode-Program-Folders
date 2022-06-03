@@ -1,6 +1,13 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+struct Job 
+{ 
+    int id;	 // Job Id 
+    int dead; // Deadline of job 
+    int profit; // Profit if job is over before or on deadline 
+};
+
 class Solution
 {
 public:
