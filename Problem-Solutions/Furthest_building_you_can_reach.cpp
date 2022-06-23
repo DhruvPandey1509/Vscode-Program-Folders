@@ -23,7 +23,6 @@ public:
                     p.pop();
                 }
             }
-
             if (bricks < 0)
                 return i;
         }
