@@ -17,7 +17,6 @@ public:
             reverse(s.begin(), s.end());
             return s;
         }
-
         string res = "";
         int pos = 0;
         int count = 0;
@@ -43,7 +42,6 @@ public:
                 }
             }
         }
-
         return res;
     }
 };
