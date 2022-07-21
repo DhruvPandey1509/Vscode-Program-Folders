@@ -6,9 +6,7 @@ class Solution
 public:
     vector<vector<int>> generate(int numRows)
     {
-
         vector<vector<int>> v(numRows);
-
         for (int i = 0; i < numRows; i++)
         {
             v[i].resize(i + 1);
