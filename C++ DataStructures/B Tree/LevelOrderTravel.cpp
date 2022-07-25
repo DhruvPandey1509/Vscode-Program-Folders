@@ -1,50 +1,65 @@
-#include <iostream>
-#include <queue>
+#include "bits/stdc++.h"
 using namespace std;
 
-template<typename T>
-class node
+class Node
 {
 public:
-    T data;
-    node *left;
-    node *right;
-    
-    node(T d)
+    Node *left;
+    Node *right;
+    int val;
+
+    Node(int data)
     {
-        data = d;
         left = NULL;
+        val = data;
         right = NULL;
     }
 };
-template<class T>
-node *buildTree()
-{
-    T d;
-    cin >> d;
-    if (d == -1)
-    {
-        return NULL;
-    }
-    node *n = new node(d);
-    n->left = buildTree();
-    n->right = buildTree();
 
-    return n;
-}
-void inorder(node *root)
+void levelOrderTraversal(Node *root)
 {
-    if (root != NULL)
+    if (root == NULL)
+        return;
+
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    int count = 0;
+    cout << "Level " << count << " : ";
+    while (!q.empty())
     {
-        inorder(root->left);
-        cout << root->data << " ";
-        inorder(root->right);
+        Node *node = q.front();
+        q.pop();
+
+        if (node != NULL)
+        {
+            cout << node->val << " ";
+            if (node->left)
+                q.push(node->left);
+            if (node->right)
+                q.push(node->right);
+        }
+        else if (!q.empty())
+        {
+            q.push(NULL);
+            cout << endl;
+            count++;
+            cout << "Level " << count << " : ";
+        }
     }
 }
+
 int main()
 {
-    node *root = buildTree();
-    inorder(root);
+    Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
+
+    levelOrderTraversal(root);
 
     return 0;
 }
