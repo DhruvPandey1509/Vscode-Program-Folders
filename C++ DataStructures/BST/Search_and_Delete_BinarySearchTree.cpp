@@ -1,10 +1,10 @@
-#include"bits/stdc++.h"
+#include "bits/stdc++.h"
 using namespace std;
 struct Node
 {
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
     Node(int val)
     {
@@ -14,13 +14,13 @@ struct Node
     }
 };
 
-Node* insert(Node* root, int val)
+Node *insert(Node *root, int val)
 {
-    if(root == NULL)
+    if (root == NULL)
     {
         return new Node(val);
-    } 
-    if(val < root->data)
+    }
+    if (val < root->data)
     {
         root->left = insert(root->left, val);
     }
@@ -30,33 +30,33 @@ Node* insert(Node* root, int val)
     }
     return root;
 }
-void inorder(Node* root)
+void inorder(Node *root)
 {
-    if(root == NULL)
+    if (root == NULL)
     {
         return;
     }
     inorder(root->left);
-    cout<<root->data<<" ";
+    cout << root->data << " ";
     inorder(root->right);
 }
 
-Node* search(Node* root, int val)
+Node *search(Node *root, int val)
 {
-    if(root == NULL)
+    if (root == NULL)
     {
-        cout<<"Doesn't exist"<<endl;
+        cout << "Doesn't exist" << endl;
         return root;
     }
-    if(val == root->data)
+    if (val == root->data)
     {
-        cout<<"Exist"<<endl;
+        cout << "Exist" << endl;
     }
-    if(val < root->data)
+    if (val < root->data)
     {
-       search(root->left, val);
+        search(root->left, val);
     }
-    else if(val > root->data)
+    else if (val > root->data)
     {
         search(root->right, val);
     }
@@ -64,44 +64,44 @@ Node* search(Node* root, int val)
     return root;
 }
 
-Node* inorderSucc(Node* root)
+Node *inorderSucc(Node *root)
 {
-    Node* curr = root;
-    while(curr && curr->left != NULL)
+    Node *curr = root;
+    while (curr && curr->left != NULL)
     {
-       curr = curr->left;
+        curr = curr->left;
     }
 
     return curr;
 }
 
-Node* deleteInBST(Node* root , int val)
+Node *deleteInBST(Node *root, int val)
 {
-    if(val < root->data)
+    if (val < root->data)
     {
         root->left = deleteInBST(root->left, val);
     }
-    else if(val > root->data)
+    else if (val > root->data)
     {
         root->right = deleteInBST(root->right, val);
     }
     else
     {
-        if(root->left == NULL)
+        if (root->left == NULL)
         {
-            Node* temp = root->right;
+            Node *temp = root->right;
             free(root);
             return temp;
         }
-        else if(root->right == NULL)
+        else if (root->right == NULL)
         {
-            Node* temp = root->left;
+            Node *temp = root->left;
             free(root);
             return temp;
         }
 
-        //case3
-        Node* temp = inorderSucc(root->right);
+        // case3
+        Node *temp = inorderSucc(root->right);
         root->data = temp->data;
         root->right = deleteInBST(root->right, temp->data);
     }
@@ -111,20 +111,20 @@ Node* deleteInBST(Node* root , int val)
 
 int main()
 {
-    Node* root = NULL;
+    Node *root = NULL;
     root = insert(root, 0);
-    insert(root,1);
-    insert(root,2);
-    insert(root,3);
-    insert(root,4);
-    insert(root,5);
-    insert(root,6);
+    insert(root, 1);
+    insert(root, 2);
+    insert(root, 3);
+    insert(root, 4);
+    insert(root, 5);
+    insert(root, 6);
     inorder(root);
-    cout<<endl;
-    search(root,7);
-    search(root,2);
+    cout << endl;
+    search(root, 7);
+    search(root, 2);
 
-    deleteInBST(root,2);
+    deleteInBST(root, 2);
     inorder(root);
     return 0;
 }

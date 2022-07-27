@@ -52,7 +52,7 @@ int height(Node *root)
 
     return max(leftHeight, rightHeight) + 1;
 }
-int diameter(Node *root) //O(n^2)
+int diameter(Node *root) // O(n^2)
 {
     if (root == NULL)
     {
@@ -77,13 +77,13 @@ int dia(Node *root, int *height) // optimised diameter calculating function O(n)
     }
 
     int lh = 0, rh = 0;
-    int ld = dia(root->left, lh);
-    int rd = dia(root->right, rh);
+    int ld = dia(root->left, &lh);
+    int rd = dia(root->right, &rh);
 
     int currD = lh + rh + 1;
     *height = max(lh, rh) + 1;
 
-    return, ax(currD, max(ld, rd));
+    return max(currD, max(ld, rd));
 }
 int main()
 {
