@@ -37,7 +37,7 @@ bool isIdentical(Node *root1, Node *root2)
         if (cond1 && cond2 && cond3)
         {
             return true;
-        }
+        } 
 
         return false;
     }
