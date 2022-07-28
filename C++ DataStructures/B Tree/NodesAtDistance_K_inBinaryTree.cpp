@@ -4,8 +4,8 @@ using namespace std;
 struct Node
 {
     int data;
-    struct Node* left;
-    struct Node* right;
+    struct Node *left;
+    struct Node *right;
 
     Node(int val)
     {
@@ -13,74 +13,73 @@ struct Node
         left = NULL;
         right = NULL;
     }
-
 };
-//case 1
-void printSubtreeNodes(Node* root, int k)
+// case 1
+void printSubtreeNodes(Node *root, int k)
 {
-    if(root == NULL || k < 0)
+    if (root == NULL || k < 0)
     {
-       return;
+        return;
     }
-    if(k == 0)
+    if (k == 0)
     {
-        cout<<root->data<<" ";
+        cout << root->data << " ";
     }
 
-    printSubtreeNodes(root->left, k-1);
-    printSubtreeNodes(root->right, k-1);
+    printSubtreeNodes(root->left, k - 1);
+    printSubtreeNodes(root->right, k - 1);
 }
-//case2 
+// case2
 
-int printNodesAtK(Node* root, Node* target, int k)
+int printNodesAtK(Node *root, Node *target, int k)
 {
-    if(root == NULL)
+    if (root == NULL)
     {
         return -1;
     }
 
-    if(root == target)
+    if (root == target)
     {
         printSubtreeNodes(root, k);
         return 0;
     }
-//dl is distance of root's left child from target
-    int dl = printNodesAtK(root->left,target, k);
-    if(dl != -1)
+    // dl is distance of root's left child from target
+    int dl = printNodesAtK(root->left, target, k);
+    if (dl != -1)
     {
-        if(dl+1 == k)
+        if (dl + 1 == k) //checking if the root was at distance k from the target node
         {
-            cout<<root->data<<" ";
+            cout << root->data << " ";
         }
-        else{
-            printSubtreeNodes(root->right, k-dl-2);
+        else
+        {
+            printSubtreeNodes(root->right, k - dl - 2);
         }
 
-        return 1+dl;
+        return 1 + dl;
     }
-//dr is distance of root's right child from target
-    int dr = printNodesAtK(root->right,target, k);
-    if(dr != -1)
+    // dr is distance of root's right child from target
+    int dr = printNodesAtK(root->right, target, k);
+    if (dr != -1)
     {
-        if(dr+1 == k)
+        if (dr + 1 == k)
         {
-            cout<<root->data<<" ";
+            cout << root->data << " ";
         }
-        else{
-            printSubtreeNodes(root->left, k-dr-2);
+        else
+        {
+            printSubtreeNodes(root->left, k - dr - 2);
         }
 
-        return 1+dr;
+        return 1 + dr;
     }
-   
-   return -1;
+
+    return -1;
 }
-
-
 
 int main()
 {
-    struct Node* root = new Node(1);
+    struct Node *root = new Node(1);
     root->left = new Node(2);
     root->right = new Node(3);
     /*
