@@ -16,7 +16,7 @@ public:
     }
 };
 
-void traverse(Node *root, vector<int> &res, int level)
+void traverse(Node *root, vector<int> &res, int level) //left View
 {
     if (root == NULL)
         return;
