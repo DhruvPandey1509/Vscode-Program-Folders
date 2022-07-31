@@ -6,7 +6,6 @@ class Solution
 public:
     vector<string> findRelativeRanks(vector<int> &score)
     {
-
         int n = score.size();
         if (n == 1)
             return {"Gold Medal"};
