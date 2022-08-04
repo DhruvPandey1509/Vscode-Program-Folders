@@ -2,13 +2,10 @@
 using namespace std;
 
 // extension * p = reflection * q
-
 // here we can take extension = q and reflection = p;
-
 // extension = even  reflection = odd   receptor = 0
 // extension = odd reflection = even   receptor = 2
 // extension = odd  reflection = odd   receptor = 1
-
 class Solution
 {
 public:
