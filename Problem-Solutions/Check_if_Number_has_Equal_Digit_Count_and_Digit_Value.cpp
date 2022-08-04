@@ -19,3 +19,5 @@ public:
         return true;
     }
 };
+// int to char :- '0' + i
+// char to int :- i - '0'
