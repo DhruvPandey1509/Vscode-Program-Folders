@@ -1,6 +1,35 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+class Solution1
+{
+public:
+    int maxProduct(vector<int> &nums)
+    {
+
+        int res = *max_element(nums.begin(), nums.end());
+        int currMin = 1, currMax = 1;
+
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (nums[i] == 0)
+            {
+                currMin = 1;
+                currMax = 1;
+            }
+            else
+            {
+                int temp = currMax * nums[i];
+                currMax = max({nums[i] * currMax, nums[i] * currMin, nums[i]}); //[-1, 8] :. nums[i]
+                currMin = min({temp, nums[i] * currMin, nums[i]});              //[-1, -8]
+                res = max(res, currMax);
+            }
+        }
+
+        return res;
+    }
+};
+
 class Solution
 {
 public:
