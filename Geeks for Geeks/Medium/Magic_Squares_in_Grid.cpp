@@ -65,7 +65,7 @@ public:
                     if (f == false)
                         break;
                 }
-
+                // if there are multiple values, the size of set won't be 9 in that case.
                 if (f && (st.size() == 9))
                     count++;
             }
