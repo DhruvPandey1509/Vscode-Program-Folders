@@ -9,7 +9,6 @@ public:
         vector<vector<char>> v(3, vector<char>(3));
 
         char val = 'x';
-
         for (auto m : moves)
         {
             v[m[0]][m[1]] = val;
