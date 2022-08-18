@@ -21,7 +21,7 @@ public:
                 res.push_back(i);
                 m[i] = -1;
             }
-            else if (m[i] != -1)
+            else if(m[i] == 0)
             {
                 m[i] = 2;
             }
