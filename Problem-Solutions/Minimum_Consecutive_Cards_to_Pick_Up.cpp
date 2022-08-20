@@ -6,7 +6,6 @@ class Solution
 public:
     int minimumCardPickup(vector<int> &cards)
     {
-
         unordered_map<int, int> m;
         int min_num = INT_MAX;
         for (int i = 0; i < cards.size(); i++)
