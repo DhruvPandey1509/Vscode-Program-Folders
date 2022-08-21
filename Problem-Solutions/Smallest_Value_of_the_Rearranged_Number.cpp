@@ -71,15 +71,6 @@ public:
                         res += to_string(i.first);
                     }
                 }
-
-                if (isZero)
-                {
-                    while (zeroCount--)
-                    {
-                        res += '0';
-                    }
-                    isZero = false;
-                }
             }
         }
         num = stoll(res);
