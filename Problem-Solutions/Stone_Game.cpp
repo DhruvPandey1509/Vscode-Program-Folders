@@ -21,3 +21,12 @@ public:
         return solve(0, n - 1, piles) > 0;
     }
 };
+
+class Solution2
+{
+public:
+    bool stoneGame(vector<int> &piles)
+    {
+        return true;
+    }
+};
