@@ -9,7 +9,6 @@ public:
         reverse(rev.begin(), rev.end());
 
         vector<vector<int>> dp(s.size() + 1, vector<int>(rev.size() + 1, 0));
-
         for (int i = 1; i <= s.size(); i++)
         {
             for (int j = 1; j <= rev.size(); j++)
@@ -24,7 +23,6 @@ public:
                 }
             }
         }
-
         return dp[s.size()][rev.size()];
     }
 };
