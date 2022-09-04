@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
+
 class Solution
 {
 public:
@@ -20,6 +21,7 @@ public:
         {
             // maximum of if we sell stock at current prices or we do not sell stock at current prices
             return dp[i][buy] = max(prices[i] + solve(prices, i + 2, !buy, dp), solve(prices, i + 1, buy, dp));
+            // if we are selling stock at current price then there is atleast 1 cooldown thats why skipping 1 and continuig from i+2;
         }
     }
     int maxProfit(vector<int> &prices)
