@@ -38,3 +38,47 @@ public:
         return max_sum;
     }
 };
+// another approach without using vector
+class Solution1
+{
+public:
+    ListNode *reverse(ListNode *head)
+    {
+        ListNode *prev = NULL;
+        ListNode *curr = head;
+        ListNode *nxt;
+
+        while (curr != NULL)
+        {
+            nxt = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+
+        return prev;
+    }
+    int pairSum(ListNode *head)
+    {
+
+        int max_sum = 0;
+        ListNode *slow = head, *fast = head;
+
+        while (fast)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        slow = reverse(slow);
+
+        while (slow)
+        {
+            max_sum = max(max_sum, head->val + slow->val);
+            slow = slow->next;
+            head = head->next;
+        }
+
+        return max_sum;
+    }
+};
