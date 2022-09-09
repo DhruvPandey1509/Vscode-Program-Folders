@@ -64,4 +64,3 @@ public:
         return level;
     }
 };
-Maximum Level Sum of a Binary Tree
