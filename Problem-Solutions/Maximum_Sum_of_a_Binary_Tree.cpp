@@ -52,7 +52,7 @@ public:
                 q.push(NULL);
             }
         }
-
+        // taking for the last level which will not be included inside the loop due to our terminating condition
         if (currSum > maxSum)
         {
             level = lvl;
