@@ -4,7 +4,7 @@ class Solution
 {
 public:
     vector<vector<string>> res;
-    bool isPalin(string s, int st, int en)
+    bool isPalindrome(string s, int st, int en)
     {
         while (st <= en)
         {
@@ -27,7 +27,7 @@ public:
 
         for (int i = start; i < s.size(); i++)
         {
-            if (isPalin(s, start, i))
+            if (isPalindrome(s, start, i))
             {
                 v.push_back(s.substr(start, i - start + 1));
                 makePartition(v, s, i + 1);
