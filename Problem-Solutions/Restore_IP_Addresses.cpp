@@ -26,10 +26,6 @@ public:
                 if ((i == 0 and str >= "0" and str <= "9") or (i == 1 and str >= "10" and str <= "99") or (i == 2 and str >= "100" and str <= "255"))
                 {
                     v.push_back(str);
-                    for (auto i : v)
-                    {
-                        cout << i << endl;
-                    }
                     backtrack(s, v, idx + i + 1);
                     v.pop_back();
                 }
