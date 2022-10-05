@@ -20,6 +20,7 @@ public:
             return root;
         queue<TreeNode *> q;
         int currDepth = 1;
+        
         if (depth == 1)
         {
             TreeNode *node = new TreeNode(val);
