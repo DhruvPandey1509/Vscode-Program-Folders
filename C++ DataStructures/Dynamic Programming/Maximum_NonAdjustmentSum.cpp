@@ -38,7 +38,6 @@ int func(int *a, int idx)
     int not_pick = func(a, idx - 1);
     return max(pick, not_pick);
 }
-
 // top down (memoization)
 int func2(vector<int> &dp, int a[], int idx)
 {

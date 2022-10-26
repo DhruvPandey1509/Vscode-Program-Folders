@@ -10,7 +10,7 @@ int solve(vector<int> &v, int i, int k)
     int jump = 0;
     for (int j = 1; j <= k; j++)
     {
-        if (j - i >= 0)
+        if (j >= i)
             break;
         jump = solve(v, i - j, k) + abs(v[i] - v[i - j]);
         res = min(res, jump);
