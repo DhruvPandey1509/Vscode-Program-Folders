@@ -15,7 +15,6 @@ public:
         {
             v.push_back({plantTime[i], growTime[i]});
         }
-
         sort(v.begin(), v.end(), cmp);
         int st = 0;
         int res = 0;
@@ -24,7 +23,6 @@ public:
             st += v[i].first;
             res = max(res, st + v[i].second);
         }
-
         return res;
     }
 };
