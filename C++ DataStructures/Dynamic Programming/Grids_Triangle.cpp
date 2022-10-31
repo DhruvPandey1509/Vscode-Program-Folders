@@ -29,28 +29,47 @@ int solve2(vector<vector<int>> &v)
     int m = v[n - 1].size();
 
     vector<vector<int>> dp(n, vector<int>(m, 0));
-    for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++)
     {
-        for (int j = 0; j < v[i].size(); j++)
+        dp[n - 1][j] = v[n - 1][j];
+    }
+
+    for (int i = n - 2; i >= 0; i--)
+    {
+        for (int j = i; j >= 0; j--)
         {
-            if (i == 0 and j == 0)
-                dp[i][j] = v[i][j];
-            else
-            {
-                int down = 1e8;
-                int diag = 1e8;
-
-                if (i > 0)
-                    down = v[i - 1][j];
-                if (j > 0 and i > 0)
-                    diag = v[i - 1][j - 1];
-
-                dp[i][j] = min(down, diag) + v[i][j];
-            }
+            int down = dp[i + 1][j];
+            int diag = dp[i + 1][j + 1];
+            dp[i][j] = min(down, diag) + v[i][j];
         }
     }
 
-    return dp[n - 1][m - 1];
+    return dp[0][0];
+}
+
+int solve3(vector<vector<int>> &v)
+{
+    int n = v.size();
+    int m = v[n - 1].size();
+
+    vector<int> front(n, 0), curr(n, 0);
+
+    for(int j = 0; j < m; j++)
+    {
+        front[j] = v[n-1][j];
+    }
+
+    for (int i = n - 2; i >= 0; i--)
+    {
+        for (int j = i; j >= 0; j--)
+        {
+            int down = front[j];
+            int diag = front[j + 1];
+            curr[j] = min(down, diag) + v[i][j];
+        }
+        front = curr;
+    }
+    return front[0];
 }
 
 int main()
@@ -68,5 +87,6 @@ int main()
     cout << solve(v, 0, 0, n) << endl;
     cout << solve1(v, dp, 0, 0, n) << endl;
     cout << solve2(v) << endl;
+    cout << solve3(v) << endl;
     return 0;
 }
