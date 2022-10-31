@@ -8,7 +8,6 @@ int solve(vector<vector<int>> &v, int i, int j, int n)
 
     int down = solve(v, i + 1, j, n);
     int diag = solve(v, i + 1, j + 1, n);
-
     return min(down, diag) + v[i][j];
 }
 int solve1(vector<vector<int>> &v, vector<vector<int>> &dp, int i, int j, int n)
