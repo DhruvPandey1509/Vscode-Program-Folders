@@ -1,6 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
-
+// Recursion
 int solve(vector<vector<int>> &v, int r, int c)
 {
     if (c < 0 || c >= v[0].size())
@@ -14,6 +14,7 @@ int solve(vector<vector<int>> &v, int r, int c)
 
     return max(left, max(right, down)) + v[r][c];
 }
+// Memoization DP
 int solve1(vector<vector<int>> &v, vector<vector<int>> &dp, int r, int c)
 {
     if (c < 0 || c >= v[0].size())
@@ -29,6 +30,7 @@ int solve1(vector<vector<int>> &v, vector<vector<int>> &dp, int r, int c)
     int right = solve(v, r - 1, c + 1);
     return dp[r][c] = max(left, max(right, down)) + v[r][c];
 }
+// Tabulation DP
 int solve2(vector<vector<int>> &v)
 {
     int n = v.size();
@@ -62,6 +64,7 @@ int solve2(vector<vector<int>> &v)
     }
     return res;
 }
+// Tabulation + Space Optimization DP
 int solve3(vector<vector<int>> &v)
 {
     int n = v.size();
