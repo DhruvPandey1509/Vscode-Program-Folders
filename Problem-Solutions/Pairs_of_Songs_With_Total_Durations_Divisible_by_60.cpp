@@ -12,10 +12,8 @@ public:
         {
             t = t % 60;
             int diff = 60 - t;
-
             if (diff == 60)
                 diff = 0;
-
             res += mp[diff];
             mp[t]++;
         }
