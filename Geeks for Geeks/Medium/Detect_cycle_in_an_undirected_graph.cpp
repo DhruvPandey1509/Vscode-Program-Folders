@@ -1,6 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+//bfs traversal solution
 class Solution
 {
 public:
@@ -41,6 +42,39 @@ public:
             {
                 if (detectCycle(adj, vis, i))
                     return true;
+            }
+        }
+        return false;
+    }
+};
+
+//dfs traversal solution
+class Solution {
+  public:
+  
+    bool dfs(vector<int> adj[], vector<bool> vis, int node, int parent)
+    {
+        vis[node] = true;
+        for(auto adjacent : adj[node])
+        {
+            if(!vis[adjacent])
+            {
+                if(dfs(adj, vis, adjacent, node)) return true;
+            }
+            else if(adjacent != parent) return true;
+        }
+        return false;
+    }
+    // Function to detect cycle in an undirected graph.
+    bool isCycle(int V, vector<int> adj[]) {
+        
+        vector<bool> vis(V, false);
+        
+        for(int i = 0 ; i < V; i++)
+        {
+            if(!vis[i])
+            {
+                if(dfs(adj, vis, i, -1)) return true;
             }
         }
         return false;
