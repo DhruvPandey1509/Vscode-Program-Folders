@@ -46,3 +46,44 @@ public:
         return idx;
     }
 };
+
+class Solution
+{
+public:
+    int minimumAverageDifference(vector<int> &nums)
+    {
+        int n = nums.size();
+        long long int startSum = 0;
+        long long int endSum = 0;
+
+        for (auto i : nums)
+            endSum += i;
+
+        long long int avg = INT_MAX;
+        long long int average = 0;
+        int count = 1;
+        int idx = -1;
+        for (int i = 0; i < n; i++)
+        {
+            startSum += nums[i];
+            endSum -= nums[i];
+            if (count == n)
+            {
+                average = (startSum / n);
+            }
+            else
+            {
+                average = abs((startSum) / count - ((endSum) / (n - count)));
+            }
+
+            if (average < avg)
+            {
+                avg = average;
+                idx = i;
+            }
+            count++;
+        }
+
+        return idx;
+    }
+};
