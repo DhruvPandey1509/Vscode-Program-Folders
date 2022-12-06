@@ -15,7 +15,7 @@ public:
         }
 
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-        pq.push({0, 0});
+        pq.push({0, 0}); // distance of this node to its parent node, node
 
         vector<int> distance(n, 1e9), ways(n, 0);
         distance[0] = 0;
@@ -30,8 +30,8 @@ public:
 
             for (auto i : adj[node])
             {
-                int adjacent = i.first;
-                int edge_weight = i.second;
+                int adjacent = i.first;     // nbr of the node
+                int edge_weight = i.second; // edge weight from node to adjacent(nbr node)
                 if (dis + edge_weight < distance[adjacent])
                 {
                     distance[adjacent] = dis + edge_weight;
