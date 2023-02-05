@@ -27,5 +27,3 @@ public:
         return res;
     }
 };
-
-// Count Vowel Strings in Ranges
