@@ -80,16 +80,16 @@ void bfs_01(vector<node> edg[], int V)
         int src = q.front();
         q.pop_front();
 
-        for (auto i : edg[src])
+        for (auto curr_node : edg[src])
         {
-            if (distance[i.destination] > distance[src] + i.weight)
+            if (distance[curr_node.destination] > distance[src] + curr_node.weight)
             {
-                distance[i.destination] = distance[src] + i.weight;
+                distance[curr_node.destination] = distance[src] + curr_node.weight;
 
-                if (i.weight == 0)
-                    q.push_front(i.destination);
+                if (curr_node.weight == 0)
+                    q.push_front(curr_node.destination);
                 else
-                    q.push_back(i.destination);
+                    q.push_back(curr_node.destination);
             }
         }
     }
