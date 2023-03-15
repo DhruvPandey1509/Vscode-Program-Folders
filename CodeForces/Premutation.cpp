@@ -7,11 +7,9 @@ void solve()
     ll num;
     cin >> n;
     vector<ll> res(n + 1);
-
     vector<ll> pos[n + 1];
 
     ll m = n;
-
     while (m--)
     {
         for (ll i = 1; i <= n - 1; i++)
@@ -45,7 +43,6 @@ void solve()
             res[pos[i][n - 2]] = i;
         }
     }
-
     for (ll i = 1; i <= n; i++)
     {
         cout << res[i] << " ";
