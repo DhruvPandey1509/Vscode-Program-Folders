@@ -9,6 +9,7 @@ ll helper(ll a, ll b, ll l, ll r, ll x)
     else if(r-a >= x && b - l >= x) return 3;
     else return -1;
 }
+
 void solve()
 {
     ll l, r, x, a, b;
